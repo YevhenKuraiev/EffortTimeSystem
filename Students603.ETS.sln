@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSite", "WebSite\WebSite.csproj", "{8EC9D666-55EB-4097-93D5-9F687D42DA3B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B6B79158-067B-4703-B9E0-F304F0A6116C} = {B6B79158-067B-4703-B9E0-F304F0A6116C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETS.Contracts", "ETS.Contracts\ETS.Contracts.csproj", "{AACA7EE8-574E-45C6-B496-D9605E55519D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETS.DAL", "ETS.DAL\ETS.DAL.csproj", "{6595437A-65FC-48EA-BBB8-6F19C9C7EC3B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ETS.Database", "ApplicationDatabase\ETS.Database.sqlproj", "{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETS.BLL", "ETS.BLL\ETS.BLL.csproj", "{B6B79158-067B-4703-B9E0-F304F0A6116C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EC9D666-55EB-4097-93D5-9F687D42DA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC9D666-55EB-4097-93D5-9F687D42DA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC9D666-55EB-4097-93D5-9F687D42DA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC9D666-55EB-4097-93D5-9F687D42DA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACA7EE8-574E-45C6-B496-D9605E55519D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACA7EE8-574E-45C6-B496-D9605E55519D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACA7EE8-574E-45C6-B496-D9605E55519D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACA7EE8-574E-45C6-B496-D9605E55519D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6595437A-65FC-48EA-BBB8-6F19C9C7EC3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6595437A-65FC-48EA-BBB8-6F19C9C7EC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6595437A-65FC-48EA-BBB8-6F19C9C7EC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6595437A-65FC-48EA-BBB8-6F19C9C7EC3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C435FBC5-5EA9-48E0-9E72-5175A6AD5A96}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B6B79158-067B-4703-B9E0-F304F0A6116C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B79158-067B-4703-B9E0-F304F0A6116C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B79158-067B-4703-B9E0-F304F0A6116C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B79158-067B-4703-B9E0-F304F0A6116C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://students603.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WebSite\\WebSite.csproj
+		SccProjectName1 = WebSite
+		SccLocalPath1 = WebSite
+		SccProjectUniqueName2 = ETS.Contracts\\ETS.Contracts.csproj
+		SccProjectName2 = ETS.Contracts
+		SccLocalPath2 = ETS.Contracts
+		SccProjectUniqueName3 = ETS.DAL\\ETS.DAL.csproj
+		SccProjectName3 = ETS.DAL
+		SccLocalPath3 = ETS.DAL
+		SccProjectUniqueName4 = ApplicationDatabase\\ETS.Database.sqlproj
+		SccProjectName4 = ApplicationDatabase
+		SccLocalPath4 = ApplicationDatabase
+		SccProjectUniqueName5 = ETS.BLL\\ETS.BLL.csproj
+		SccProjectName5 = ETS.BLL
+		SccLocalPath5 = ETS.BLL
+	EndGlobalSection
+EndGlobal

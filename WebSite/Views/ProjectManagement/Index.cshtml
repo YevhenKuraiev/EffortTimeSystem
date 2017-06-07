@@ -1,0 +1,67 @@
+﻿@using WebSite.Models
+
+@model IEnumerable<ProjectManagementModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4 class="page-header">Project management</h4><br />
+
+<div class="div-name-filters">
+    <p>
+        <label class="label-name-filters">Project</label>
+    </p>
+    <p>
+        <label class="label-name-filters">Team leader</label>
+    </p>
+</div>
+
+
+<!-- для фильтров нужно разобраться с моделями!!! -->
+<div class="div-filters">
+    <p>
+        <select class="select" style="height: 25px">
+            @foreach (ProjectManagementModel report in Model)
+            {
+            <option>@report.ProjectName</option>
+            }
+        </select>
+    </p>
+    <p>
+        <select style="height: 25px">
+        @foreach (ProjectManagementModel report in Model)
+        {
+            <option>@report.ProjectManager</option>
+        }
+        </select>
+    </p>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>Project</th>
+        <th>Project Manager</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+
+    @foreach (ProjectManagementModel report in Model)
+    {
+        <tr>
+            <td>@report.ProjectName</td>
+            <td>@report.ProjectManager</td>
+            <td>@report.Description</td>
+            <td>
+                <input type="button" value="Delete" class="btn btn-default" />
+                @Html.ActionLink("Edit", "EditProject", "ProjectManagement", new { id = @report.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("New project", "EditProject", "ProjectManagement", new { id = Model.Last().Id + 1 }, new { @class = "btn btn-default" })
+</p>
+

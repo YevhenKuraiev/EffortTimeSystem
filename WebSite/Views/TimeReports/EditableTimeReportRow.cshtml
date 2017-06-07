@@ -1,0 +1,32 @@
+﻿@model WebSite.Models.ManageTimeReportModel
+
+<tr id="timeReportRow">
+    @Html.HiddenFor(m => m.Id)
+    <td><input type="checkbox" class="timeReports"/></td>
+    <td>
+        @*@Html.DropDownListFor(m => m.ProjectId, new SelectList(Model.Projects, "Id", "Title"))*@
+        @Html.TextBoxFor(m => m.ProjectId, new { @class = "table-row-input" })
+    </td>
+    <td>
+        @Html.DropDownListFor(m => m.TaskId, new SelectList(Model.Tasks, "Id", "Title"), new { @class = "table-row-input" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.SpentHours.Effort, new { @class = "table-row-input" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.SpentHours.Overtime, new { @class = "table-row-input" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.Description, new { @class = "table-row-input" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.TimeInterval.StartDate, new { @class = "table-row-input" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.TimeInterval.EndDate, new {@class ="table-row-input"})
+    </td>
+    <td></td>
+    <td>
+        <input type="submit" class="button-submit"value="Submit"/>
+    </td>
+</tr>

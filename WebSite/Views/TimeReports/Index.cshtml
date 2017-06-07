@@ -1,0 +1,128 @@
+﻿@using WebSite.Controllers
+@using WebSite.Models
+
+@model IEnumerable<TimeReportModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    window.CREATE_REPORT_URL = '@Url.Action("CreateTimeReport", "TimeReports")';
+    window.EDIT_REPORT_URL = '@Url.Action("EditTimeReport", "TimeReports")';
+    window.DELETE_REPORT_URL = '@Url.Action("DeleteTimeReport", "TimeReports")';
+</script>
+
+<h4 class="page-header">Time reports</h4><br />
+
+ <div class="div-name-filters">
+     <p>
+         <label class="label-name-filters">Team member</label>
+     </p>
+     <p>
+         <label class="label-name-filters">Project</label>
+     </p>
+    <p>
+        <label class="label-name-filters">Show records from</label>
+    </p>
+    <p>
+        <label class="label-name-filters">to</label>
+    </p>
+    <p>
+        <label class="label-name-filters">Show records for</label>
+    </p>
+</div>
+
+     <div class="div-filters">
+        <p>
+            <input maxlength="25" size="30" value="Surname, Name" />
+        </p>
+        <p>
+            <select class="select">
+               @foreach (TimeReportModel report in Model)
+               {
+                <option>@report.ProjectName </option>
+               }
+
+            </select>
+        </p>
+        <p>
+            <input type="date" />
+        </p>
+        <p>
+            <input type="date" />
+        </p>
+        <p>
+            <select class="select">
+                <option>a week</option>
+                <option>a month</option>
+            </select>
+        </p>
+     </div>
+
+
+    <div class="div-status">
+       <label class="label-status">Status</label>
+        <div class="div-checkbox-status">
+            <input type="checkbox"> Accepted<br />
+            <input type="checkbox"> Declined<br />
+            <input type="checkbox"> Send<br />
+            <input type="checkbox"> Open<br />
+        </div>
+    </div>
+
+
+ 
+
+@using (Html.BeginForm("Save", "TimeReports", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <!--
+            Добавлен checkbox для выделения всех отчетов.
+            Для использования на других страницах необходимо добавить к checkbox (который должен выделять всё) класс "checkALL".
+            -->
+            <th><input type="checkbox" class="checkALL"/></th>
+            <th>Project</th>
+            <th>Task</th>
+            <th>Effort</th>
+            <th>Overtime</th>
+            <th>Description</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Status</th>
+            <th class="text-center">Actions</th>
+        </tr>
+
+        @foreach (TimeReportModel report in Model)
+        {
+            <tr>
+                @Html.Hidden("reportId", report.Id)
+                <!--
+                Добавлен checkbox каждому отчету.
+                Для использования на других страницах необходимо добавить к checkbox класс "timeReports".
+                -->
+                <td><input type="checkbox" class="timeReports"/></td>
+                <td>@report.ProjectName</td>
+                <td>@report.TaskName</td>
+                <td>@report.SpentHours.Effort</td>
+                <td>@report.SpentHours.Overtime</td>
+                <td>@report.Description</td>
+                <td>@report.TimeInterval.StartDate.ToShortDateString()</td>
+                <td>@report.TimeInterval.EndDate.ToShortDateString()</td>
+                <td>@report.Status</td>
+                <td> @if (report.Status == ETS.Contracts.DataContracts.ReportStatus.Open.ToString())
+                {
+                    <input type="button" value="Edit" class="btn btn-default" onclick="editTimeReport(@report.Id, this)"/> 
+                    <input type="button" value="Delete" class="btn btn-default" onclick="location.href='@Url.Action("DeleteTimeReport", "TimeReports", new { id = @report.Id })'"/> @*onclick=deleteTimeReport(@report.Id)"/>*@
+                    <input type="button" value="Notify" class="btn btn-default" onclick="location.href='@Url.Action("NotifyTimeReport", "TimeReports", new { id = @report.Id })'" />
+                }</td>
+            </tr>
+        }
+    </table>
+}
+
+<p>
+    <button id="addbutton" class="btn btn-default" onclick="addTimeReport()">Add report</button>
+    <button class="btn btn-default" >Notify selected</button>
+
+</p>

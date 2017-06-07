@@ -1,0 +1,30 @@
+﻿@model IEnumerable<WebSite.Models.TimeEffortModel>
+
+@{
+    ViewBag.Title = "Time Effort";
+}
+
+<h2>TimeEffort</h2>
+//TODO: Add filters
+    <table class="table">
+        <tr>
+            <!--
+            Добавлен checkbox для выделения всех отчетов.
+            Для использования на других страницах необходимо добавить к checkbox (который должен выделять всё) класс "checkALL".
+            -->
+            <th>Project</th>
+            <th>Effort</th>
+            <th>Overtime</th>
+            <th>Total</th>
+        </tr>
+
+        @foreach (var projectEffort in Model)
+        {
+            <tr>
+                <td>@projectEffort.ProjectName</td>
+                <td>@projectEffort.Effort</td>
+                <td>@projectEffort.Overtime</td>
+                <td>@projectEffort.Total</td>
+            </tr>
+        }
+    </table>
